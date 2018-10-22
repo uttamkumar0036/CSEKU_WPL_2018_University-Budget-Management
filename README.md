@@ -2,7 +2,7 @@ Digital University
 
 	This is new module. This module can be used to manage the university budget by using this Digital University System.
 
-	Module Nane: University Budget Management.
+	Module Name: University Budget Management.
 	
 	Developed By
 		Uttam Paul 160236
