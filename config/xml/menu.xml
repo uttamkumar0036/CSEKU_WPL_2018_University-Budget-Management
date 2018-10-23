@@ -913,8 +913,8 @@
 		<ParentMenu></ParentMenu>
 		<Title>Budget</Title>
 		<Permissions>
-			<Permission>BUDGET_C</Permission>
 			<Permission>BUDGET_R</Permission>
+			<Permission>BUDGET_C</Permission>
 			<Permission>BUDGET_U</Permission>
 			<Permission>BUDGET_D</Permission>									
 		</Permissions>			
@@ -924,10 +924,10 @@
 				<ParentMenu>Budget</ParentMenu>
 				<Title>Manage Budget</Title>
 				<Permissions>
-					<Permission>BUDGET_C</Permission>
-					<Permission>BUDGET_U</Permission>									
-					<Permission>BUDGET_D</Permission>	
 					<Permission>BUDGET_R</Permission>
+					<Permission>BUDGET_C</Permission>
+					<Permission>BUDGET_U</Permission>	
+					<Permission>BUDGET_D</Permission>	
 				</Permissions>
 			</Menu>
 
@@ -936,7 +936,9 @@
 					<Title>Budget</Title>
 					<Link>budget.php</Link>
 					<Permissions>
-						<Permission>BUDGET_R</Permission>
+						<Permission>BUDGET_C</Permission>
+						<Permission>BUDGET_U</Permission>	
+						<Permission>BUDGET_D</Permission>	
 					</Permissions>
 				</Menu>
 
@@ -954,7 +956,9 @@
 					<Title>Manage Budget Information</Title>
 					<Link>managebudgetinformation.php</Link>
 					<Permissions>
-						<Permission>BUDGET_R</Permission>
+					<Permission>BUDGET_C</Permission>
+					<Permission>BUDGET_U</Permission>	
+					<Permission>BUDGET_D</Permission>	
 					</Permissions>
 				</Menu>
 </Menus>

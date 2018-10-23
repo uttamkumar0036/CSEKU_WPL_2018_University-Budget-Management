@@ -41,7 +41,7 @@
 			?>
 				<table class="table table-bordered">
 				<tr>
-				  <th>Serial No.</th>
+
 					<th>Budget Sector</th>
 					<th>Budget Amount</th>
 					<th>Start Date</th>
@@ -50,17 +50,17 @@
 					<th>Budget Description</th>
 				</tr>
 				<?php 
-					$i = 0;
+		
 					foreach ($rows as $row) {
 				?>
 						<tr>
-							<td><?php echo ++$i; ?></td>
+	
 							<td><?php echo $row->getBudgetSubsectorName(); ?></td>
 							<td><?php echo $row->getBudgetAmount(); ?></td>
 							<td><?php echo $row->getStartDate(); ?></td>
 							<td><?php echo $row->getEndDate(); ?></td>
-							<td><?php echo $row->getBudgetProgress(); ?></td>
-							<td><?php echo $row->getBudgetDescription(); ?></td>
+							<td style="width:40px"><?php echo $row->getBudgetProgress().'%'; ?></td>
+							<td style="width:500px"><?php echo $row->getBudgetDescription(); ?></td>
 						</tr>
 				<?php
 					}
