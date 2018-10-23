@@ -51,7 +51,7 @@
 						<tr>
 							<td><?php echo $i; ?></td>
 							<td>
-								<a href="budgetinformation.php?v=<?php $value['budget_sector_id'];; ?>"><?php echo $value['budget_sector_name']; ?></a>
+								<a href="budgetinformation.php?v=<?php echo $value['budget_sector_id'];; ?>"><?php echo $value['budget_sector_name']; ?></a>
 							</td>
 							<td>
 								<p onclick="return confirm('sure to edit?');">

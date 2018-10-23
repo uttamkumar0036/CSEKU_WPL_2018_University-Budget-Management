@@ -23,6 +23,10 @@
 						</select>
 					</div>
 					<div class="form-group">
+						<label for="budget_amount">Budget Amount:</label>
+						<input type="text" name="budget_amount" value="" placeholder="Budget Amount" class="form-control">
+					</div>
+					<div class="form-group">
 						<label for="start_date">Start Date:</label>
 						<input type="date" name="start_date" value="" placeholder="" class="form-control">
 					</div>

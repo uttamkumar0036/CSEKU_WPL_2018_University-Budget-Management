@@ -37,6 +37,7 @@ class ManageBudgetInformationDAO {
 		$endDate = $budgetSubsector->getEndDate();
 		$budgetProgress = $budgetSubsector->getBudgetProgress();
 		$description = $budgetSubsector->getBudgetDescription();
+		$amount = $budgetSubsector->getBudgetAmount();
 
 		$sql = "INSERT INTO 
 		budget_subsector(
@@ -44,13 +45,15 @@ class ManageBudgetInformationDAO {
 			start_date, 
 			end_date, 
 			budget_progress, 
-			description
+			description,
+			amount
 		) VALUES (
 			'$budgetSectorId', 
 			'$startDate', 
 			'$endDate', 
 			'$budgetProgress', 
-			'$description'
+			'$description',
+			'$amount'
 		)";
 
 		$sql = $this->_db->doQuery($sql);
@@ -81,6 +84,7 @@ class ManageBudgetInformationDAO {
 			$budgetSubsector->setEndDate($row['end_date']);
 			$budgetSubsector->setBudgetProgress($row['budget_progress']);
 			$budgetSubsector->setBudgetDescription($row['description']);
+			$budgetSubsector->setBudgetAmount($row['amount']);
 			$budgteSubsectorList[] = $budgetSubsector;
 		}
 

@@ -10,8 +10,16 @@ class BudgetInformationBAO
 		$this->_budgetInformationDAO = new BudgetInformationDAO();
 	}
 
-	public function getBudgetSubsectorById($budgetSectorId) {
-		$result = $this->_budgetInformationDAO->getBudgetSubsectorById($budgetSectorId);
+	public function getAllBudgetSector() {
+		$result = $this->_budgetInformationDAO->getAllBudgetSector();
+		if ($result->getIsSuccess()) {
+			return $result;
+		}
+		return null;
+	}
+
+	public function getAllBudgetSubsectorById($budgetSectorId) {
+		$result = $this->_budgetInformationDAO->getAllBudgetSubsectorById($budgetSectorId);
 		if ($result->getIsSuccess()) {
 			return $result;
 		}

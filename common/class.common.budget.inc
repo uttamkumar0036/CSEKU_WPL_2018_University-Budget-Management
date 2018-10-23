@@ -31,6 +31,7 @@ class BudgetSubsector {
 	private $_endDate;
 	private $_budgetProgress;
 	private $_budgetDescription;
+	private $_budgetAmount;
 
 	public function setBudgetSubsectorId($budgetSubsectorId) {
 		$this->_budgetSubsectorId = $budgetSubsectorId;
@@ -80,12 +81,20 @@ class BudgetSubsector {
 		return $this->_budgetProgress;
 	}
 
-	public function setBudgetDescription($budgetDEscription) {
-		$this->_budgetDescription = $budgetDEscription;
+	public function setBudgetDescription($budgetDescription) {
+		$this->_budgetDescription = $budgetDescription;
 	}
 
 	public function getBudgetDescription() {
 		return $this->_budgetDescription; 
+	}
+	
+	public function setBudgetAmount($budgetAmount) {
+		$this->_budgetAmount = $budgetAmount;
+	}
+
+	public function getBudgetAmount() {
+		return $this->_budgetAmount;
 	}
 }
 

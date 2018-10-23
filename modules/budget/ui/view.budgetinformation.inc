@@ -6,33 +6,66 @@
 			<h4>Budget Information</h4>
 		</div>
 		<div class="panel-body">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Serial No.</th>
+						<th>Budget Sector Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+						if (!is_null($allBudgetSector)) {
+							$i = 0;
+							$rows = $allBudgetSector->getResultObject();
+							foreach ($rows as $row) {
+					?>
+								<tr>
+									<td><?php echo ++$i; ?></td>
+									<td>
+										<a href="budgetinformation.php?v=<?php echo $row->getBudgetSectorId(); ?>"><?php echo $row->getBudgetSectorName(); ?></a>
+									</td>
+								</tr>
+					<?php
+							}
+						}
+					?>
+				</tbody>
+			</table>
+		</div>
+		<div class="panel-body">
 			<?php
 
-				if (!is_null($budgetSubsectorByIdResult)) {
-					$row = $budgetSubsectorByIdResult->getResultObject();
+				if (isset($allBudgetSubsectorByIdResult) && !is_null($allBudgetSubsectorByIdResult)) {
+					$rows = $allBudgetSubsectorByIdResult->getResultObject();
 			?>
-				<div>
-					<p>Budget Sector Name: 
-					<?php echo $row->getBudgetSubsectorName(); ?></p>
-				</div>
-
-				<div>
-					<p>Budget Start Date:
-					<?php echo $row->getStartDate(); ?></p>
-				</div>
-
-				<div>
-					<p>Budget End Date:
-					<?php echo $row->getEndDate(); ?></p>
-				</div>
-				<div>
-					<p>Budget Progress:
-					<?php echo $row->getBudgetProgress(); ?></p>
-				</div>
-				<div>
-					<p>Budget Desciption:
-					<?php echo $row->getBudgetDesciption(); ?></p>
-				</div>
+				<table class="table table-bordered">
+				<tr>
+				  <th>Serial No.</th>
+					<th>Budget Sector</th>
+					<th>Budget Amount</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Budget Progress</th>
+					<th>Budget Description</th>
+				</tr>
+				<?php 
+					$i = 0;
+					foreach ($rows as $row) {
+				?>
+						<tr>
+							<td><?php echo ++$i; ?></td>
+							<td><?php echo $row->getBudgetSubsectorName(); ?></td>
+							<td><?php echo $row->getBudgetAmount(); ?></td>
+							<td><?php echo $row->getStartDate(); ?></td>
+							<td><?php echo $row->getEndDate(); ?></td>
+							<td><?php echo $row->getBudgetProgress(); ?></td>
+							<td><?php echo $row->getBudgetDescription(); ?></td>
+						</tr>
+				<?php
+					}
+				?>
+				</table>
 				
 			<?php		
 					
