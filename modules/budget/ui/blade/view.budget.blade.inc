@@ -1,7 +1,6 @@
 <?php
 include MODULES_BUDGET . 'bao/class.budgetbao.inc';
 
-//$objBudgetBAO = new BudgetBAO();
 
 if (isset($_POST['submit'])) {
 	$budget_sector_name = $_POST['budget_sector_name'];

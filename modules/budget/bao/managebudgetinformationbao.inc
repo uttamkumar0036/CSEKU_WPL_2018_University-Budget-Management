@@ -29,4 +29,21 @@ class ManageBudgetInformationBAO {
 		}
 		return null;	
 	}
+
+
+
+	public function updateBudgetInfromation($budgetIformation){
+		return $this->_manageBudgetInformationDAO->updateBudgetInfromation($budgetIformation);
+	}
+
+	public function getBudgetInformationById($budgetSubsectorId) {
+		$result = $this->_manageBudgetInformationDAO->getBudgetInformationById($budgetSubsectorId);
+		if ($result->getIsSuccess()) {
+			return $result;
+		}
+		return null;
+	}
+
+
+
 } 

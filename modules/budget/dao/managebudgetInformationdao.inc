@@ -64,6 +64,55 @@ class ManageBudgetInformationDAO {
 		return $result;
 	}
 
+
+
+	public function updateBudgetInfromation($budgetIformation) {
+		$budgetSubsectorId = $budgetIformation->getBudgetSubsectorId();
+		$startDate = $budgetIformation->getStartDate();
+		$endDate = $budgetIformation->getEndDate();
+		$budgetProgress = $budgetIformation->getBudgetProgress();
+		$description = $budgetIformation->getBudgetDescription();
+		$amount = $budgetIformation->getBudgetAmount();
+
+		$sql = "UPDATE budget_subsector SET  
+			start_date = '$startDate', 
+			end_date = '$endDate', 
+			budget_progress = '$budgetProgress', 
+			description = '$description',
+			amount = '$amount'
+		WHERE budget_subsector_id = '$budgetSubsectorId';";
+
+		$sql = $this->_db->doQuery($sql);
+
+		$result = new Result();
+		$result->setIsSuccess(1);
+		$result->setResultObject($sql);
+		return $result;
+	}
+
+	public function getBudgetInformationById($budgetSubsectorId) {
+		$sql = "SELECT * FROM budget_subsector WHERE budget_subsector_id = '$budgetSubsectorId';";
+
+		$this->_db->doQuery($sql);
+		$row = $this->_db->getTopRow();
+		
+		$budgetSubsector = new BudgetSubsector();
+		$budgetSubsector->setBudgetSubsectorId($row['budget_subsector_id']);
+		$budgetSubsector->setBudgetSectorId($row['budget_sector_id']);
+		$budgetSubsector->setStartDate($row['start_date']);
+		$budgetSubsector->setEndDate($row['end_date']);
+		$budgetSubsector->setBudgetProgress($row['budget_progress']);
+		$budgetSubsector->setBudgetDescription($row['description']);
+		$budgetSubsector->setBudgetAmount($row['amount']);
+		
+		$result = new Result();
+		$result->setIsSuccess(1);
+		$result->setResultObject($budgetSubsector);
+
+		return $result;
+
+	}	
+
 	public function getAllBudgetSubsector() {
 		$sql = "SELECT budget_subsector.*, budget_sector.* 
 		FROM budget_subsector INNER JOIN budget_sector ON 
